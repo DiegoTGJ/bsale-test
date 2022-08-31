@@ -2,10 +2,13 @@ package diego.bsaletest.domain.services;
 
 import diego.bsaletest.domain.model.Category;
 import diego.bsaletest.domain.repositories.CategoryRepository;
+import diego.bsaletest.presentation.mappers.CategoryMapper;
+import diego.bsaletest.presentation.model.CategoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Diego T. 31-08-2022
@@ -14,8 +17,9 @@ import java.util.List;
 @Service
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
+    private final CategoryMapper categoryMapper;
     @Override
-    public List<Category> listCategories() {
-        return categoryRepository.findAll();
+    public List<CategoryDto> listCategories() {
+        return categoryRepository.findAll().stream().map(categoryMapper::toDto).collect(Collectors.toList());
     }
 }
