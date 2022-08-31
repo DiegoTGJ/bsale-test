@@ -16,6 +16,9 @@ const getData = (url) => {
    </div>`).appendTo("#products")
 
     })
+    if(data.totalElements === 0) {
+      $(`<h1 class="ms-5">No existen productos con el termino buscado</h1>`).appendTo("#products")
+    }
     for(let i = 0; i < data.totalPages; i++) {
       $(`<li class="page-item" id="page-${i}"><a class="page-link" >${i+1}</a></li>`).on("click",(event) => {
         const pageNumber = event.currentTarget.id.split("-")[1]
@@ -53,10 +56,22 @@ $(() => {
    alert("Fallo la conexion con el servidor")
  })
 
+ $("#search-button").on("click", (event) => {
+  const searchName = $("#search-input")[0].value
+  getData(productsApiURL+"?nameSearch="+searchName)
+ })
+ $("#search-input").on("keyup",(event) => {
+  console.log(event)
+  if(event.key == "Enter") {
+    getData(productsApiURL+"?nameSearch="+event.currentTarget.value)
+  }
+ })
+ // Main Cart Icon click handler
  $("#cart-icon").on("click",(event) => {
    alert("Not Implemented")
  })
 
+ // Product Cart Icons click handler
  $(document).on("click", ".cart-product-icon", () => {
   alert("Not Implemented")
  })
