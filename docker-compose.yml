@@ -8,3 +8,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8081:8081"
+  server:
+    image: bsale-back
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
