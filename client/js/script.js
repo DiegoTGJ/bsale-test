@@ -1,4 +1,6 @@
 const getData = (url) => {
+  $("#products").empty()
+  $("#pagination").empty()
   $.getJSON(url).done((data) => {
     $.each(data.content, (index, item) => {
      $(`<div class="card product-card p-0" style="width: 18rem;">
@@ -12,7 +14,22 @@ const getData = (url) => {
          <small class="text-muted "><i class="fa-solid fa-2x fa-cart-arrow-down cart-product-icon float-end"></i></small>
        </div>
    </div>`).appendTo("#products")
+
     })
+    for(let i = 0; i < data.totalPages; i++) {
+      $(`<li class="page-item" id="page-${i}"><a class="page-link" >${i+1}</a></li>`).on("click",(event) => {
+        const pageNumber = event.currentTarget.id.split("-")[1]
+        if(url.includes("pageNumber")){
+          getData(url.slice(0,-1)+pageNumber)
+        }else{
+          if(url.includes("categoryId")){
+            getData(url+"&pageNumber="+pageNumber)
+          }else{
+            getData(url+"?pageNumber="+pageNumber)
+          }
+        }
+      }).appendTo("#pagination")
+    }
   }).fail(() => {
     alert("Fallo la conexion con el servidor")
    })
@@ -28,7 +45,6 @@ $(() => {
    $.each(data, (index, item) => {
      $(`<li class="categories-item" id="category-${item.id}"><a class="dropdown-item">${item.name.toUpperCase()}</a></li>`).on("click",(event) => {
       const categoryId = event.currentTarget.id.split("-")[1]
-      $("#products").empty()
       const filteredUrl = productsApiURL+"?categoryId="+categoryId
       getData(filteredUrl)
      }).appendTo("#categories-dropdown")

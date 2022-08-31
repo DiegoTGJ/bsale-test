@@ -27,7 +27,8 @@ public class ProductController {
     @GetMapping()
     public ResponseEntity<ProductPagedList> getProducts(@RequestParam(value = "pageNumber", required = false) Integer pageNumber,
                                                         @RequestParam(value = "pageSize", required = false) Integer pageSize,
-                                                        @RequestParam(value = "categoryId", required = false) Integer categoryId){
+                                                        @RequestParam(value = "categoryId", required = false) Integer categoryId,
+                                                        @RequestParam(value = "nameSearch", required = false) String nameSearch){
         if (pageNumber == null || pageNumber < 0){
             pageNumber = DEFAULT_PAGE_NUMBER;
         }
@@ -35,7 +36,8 @@ public class ProductController {
         if (pageSize == null || pageSize < 1) {
             pageSize = DEFAULT_PAGE_SIZE;
         }
-        ProductPagedList list = productService.listProducts(PageRequest.of(pageNumber,pageSize),categoryId);
+        if(nameSearch == null) nameSearch = "";
+        ProductPagedList list = productService.listProducts(PageRequest.of(pageNumber,pageSize),categoryId,nameSearch);
 
         return new ResponseEntity<>(list, HttpStatus.OK);
     }

@@ -7,5 +7,5 @@ import org.springframework.data.domain.PageRequest;
  * Created by Diego T. 31-08-2022
  */
 public interface ProductService {
-    ProductPagedList listProducts(PageRequest pageRequest, Integer category);
+    ProductPagedList listProducts(PageRequest pageRequest, Integer category, String nameSearch);
 }

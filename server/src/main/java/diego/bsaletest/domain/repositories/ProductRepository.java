@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<Product> findAllByCategory_Id(Integer category, PageRequest pageRequest);
+    Page<Product> findAllByNameContainsIgnoreCase(String name,PageRequest pageRequest);
 }
+

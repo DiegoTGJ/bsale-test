@@ -24,13 +24,17 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     @Override
-    public ProductPagedList listProducts(PageRequest pageRequest, Integer category) {
+    public ProductPagedList listProducts(PageRequest pageRequest, Integer category, String nameSearch) {
         Page<Product> productPage;
 
-        if(category == null) {
-             productPage = productRepository.findAll(pageRequest);
+        if(nameSearch.trim().isEmpty()){
+            if(category == null) {
+                productPage = productRepository.findAll(pageRequest);
+            }else{
+                productPage = productRepository.findAllByCategory_Id(category,pageRequest);
+            }
         }else{
-            productPage = productRepository.findAllByCategory_Id(category,pageRequest);
+            productPage = productRepository.findAllByNameContainsIgnoreCase(nameSearch,pageRequest);
         }
          return new ProductPagedList(productPage
                  .stream()
