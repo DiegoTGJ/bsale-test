@@ -1,7 +1,7 @@
 package diego.bsaletest.presentation.controllers;
 
 import diego.bsaletest.domain.model.Product;
-import diego.bsaletest.domain.repositories.ProductRepository;
+import diego.bsaletest.domain.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +21,11 @@ import java.util.List;
 public class ProductController {
 
 
-    private final ProductRepository productRepository;
+    private final ProductService productService;
     @CrossOrigin( origins = {})
     @GetMapping()
     public ResponseEntity<List<Product>> getProducts(){
-        List<Product> list = productRepository.findAll();
+        List<Product> list = productService.listProducts();
 
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
