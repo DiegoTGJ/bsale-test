@@ -25,7 +25,7 @@ const getData = (url) => {
         if(url.includes("pageNumber")){
           getData(url.slice(0,-1)+pageNumber)
         }else{
-          if(url.includes("categoryId")){
+          if(url.includes("categoryId") || url.includes("nameSearch")){
             getData(url+"&pageNumber="+pageNumber)
           }else{
             getData(url+"?pageNumber="+pageNumber)
@@ -61,7 +61,6 @@ $(() => {
   getData(productsApiURL+"?nameSearch="+searchName)
  })
  $("#search-input").on("keyup",(event) => {
-  console.log(event)
   if(event.key == "Enter") {
     getData(productsApiURL+"?nameSearch="+event.currentTarget.value)
   }
