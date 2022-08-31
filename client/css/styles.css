@@ -1,0 +1,27 @@
+.search-bar {
+  padding: 1rem;
+  max-width: calc(80% - 4rem);
+}
+.icon {
+  padding-left: 2rem;
+}
+.cart-product-icon {
+  cursor: pointer;
+  margin-top: auto;
+}
+.search-icon {
+  cursor: pointer;
+}
+
+.main-container{
+  height: 100%;
+}
+
+.product-img {
+  max-height: 310px;
+  min-height: 286px;
+}
+
+.product-card {
+  margin: 0.5rem;
+}
