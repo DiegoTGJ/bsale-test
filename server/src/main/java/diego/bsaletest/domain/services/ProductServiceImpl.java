@@ -4,7 +4,11 @@ import diego.bsaletest.domain.model.Product;
 import diego.bsaletest.domain.repositories.ProductRepository;
 import diego.bsaletest.presentation.mappers.ProductMapper;
 import diego.bsaletest.presentation.model.ProductDto;
+import diego.bsaletest.presentation.model.ProductPagedList;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +24,20 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     @Override
-    public List<ProductDto> listProducts() {
-        return productRepository.findAll().stream().map(productMapper::toDto).collect(Collectors.toList());
+    public ProductPagedList listProducts(PageRequest pageRequest, Integer category) {
+        Page<Product> productPage;
+
+        if(category == null) {
+             productPage = productRepository.findAll(pageRequest);
+        }else{
+            productPage = productRepository.findAllByCategory_Id(category,pageRequest);
+        }
+         return new ProductPagedList(productPage
+                 .stream()
+                 .map(productMapper::toDto)
+                 .collect(Collectors.toList()),
+                 PageRequest.of(productPage.getPageable().getPageNumber(),
+                 productPage.getPageable().getPageSize()),
+                 productPage.getTotalElements());
     }
 }

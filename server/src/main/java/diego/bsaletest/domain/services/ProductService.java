@@ -1,13 +1,11 @@
 package diego.bsaletest.domain.services;
 
-import diego.bsaletest.domain.model.Product;
-import diego.bsaletest.presentation.model.ProductDto;
 
-import java.util.List;
-
+import diego.bsaletest.presentation.model.ProductPagedList;
+import org.springframework.data.domain.PageRequest;
 /**
  * Created by Diego T. 31-08-2022
  */
 public interface ProductService {
-    List<ProductDto> listProducts();
+    ProductPagedList listProducts(PageRequest pageRequest, Integer category);
 }
