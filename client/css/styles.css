@@ -3,6 +3,7 @@
   max-width: calc(80% - 4rem);
 }
 .icon {
+  cursor: pointer;
   padding-left: 2rem;
 }
 .cart-product-icon {
@@ -12,7 +13,6 @@
 .search-icon {
   cursor: pointer;
 }
-
 .main-container{
   height: 100%;
 }
@@ -24,4 +24,8 @@
 
 .product-card {
   margin: 0.5rem;
+}
+
+.categories-item {
+  cursor: pointer;
 }
