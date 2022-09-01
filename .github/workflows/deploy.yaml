@@ -13,7 +13,7 @@ jobs:
       #build and tag
       - run: docker build -t pdtg/bsale-front ./client
       - run: docker build -t pdtg/bsale-server ./server
-      - run: docker build -t pdtg/bsale-nginx ./ngninx
+      - run: docker build -t pdtg/bsale-nginx ./nginx
       #push to docker hub
       - run: docker push pdtg/bsale-front
       - run: docker push pdtg/bsale-server
