@@ -2,7 +2,7 @@
 
 | Build Status                                                                                       |
 |----------------------------------------------------------------------------------------------------|
-| GitHub ![Workflow](https://github.com/DiegoTGJ/bsale-test/actions/workflows/deploy.yaml/badge.svg) |
+|![Workflow](https://github.com/DiegoTGJ/bsale-test/actions/workflows/deploy.yaml/badge.svg) |
 
 ### About
 Este es un proyecto con el fin de demostrar las habilidades tecnicas del postulante para la empresa Bsale
