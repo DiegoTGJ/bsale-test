@@ -14,7 +14,7 @@ Este es un proyecto con el fin de demostrar las habilidades tecnicas del postula
 ### Getting Started
 
 Para correr este proyecto de manera local debes tener instalado [Docker Compose](https://docs.docker.com/compose/install/)
-y ejecutar el siguiente comando dentro del root del proyecto:
+crear un archivo .env con las variables definidas en config/.env-sample y ejecutar el siguiente comando dentro del root del proyecto:
 ```docker-compose
   docker-compose -f .\docker-compose-dev.yml up
 ```
