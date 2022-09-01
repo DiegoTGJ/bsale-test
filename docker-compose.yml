@@ -2,13 +2,13 @@ version: "3"
 
 services:
   client:
-    image: bsale-front
+    image: pdtg/bsale-front
     hostname: client
     build:
       context: client
       dockerfile: Dockerfile
   api:
-    image: bsale-back
+    image: pdtg/bsale-server
     hostname: api
     build:
       context: server
@@ -18,7 +18,7 @@ services:
       - BSALE_DB_USER=$BSALE_DB_USER
       - BSALE_DB_PASSWORD=$BSALE_DB_PASSWORD
   nginx:
-    image: bsale-nginx
+    image: pdtg/bsale-nginx
     build:
       context: nginx
       dockerfile: Dockerfile
