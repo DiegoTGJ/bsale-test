@@ -1,4 +1,4 @@
-name: Deploy Multi Docker
+name: Deploy Bsale
 on:
   push:
     branches:
@@ -27,8 +27,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: bsale-test
-          environment_name: Bsaletest-env
+          application_name: bsale-prueba
+          environment_name: Bsaleprueba-env
           existing_bucket_name: elasticbeanstalk-sa-east-1-617664205515
           region: sa-east-1
           version_label: ${{ github.sha }}
