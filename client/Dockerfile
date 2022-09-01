@@ -1,5 +1,4 @@
-FROM nginx:alpine
-
-WORKDIR /app
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY . .
+FROM nginx:1.21.0
+EXPOSE 3000
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./static /usr/share/nginx/html

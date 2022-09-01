@@ -1,0 +1,35 @@
+name: Deploy Multi Docker
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      #build and tag
+      - run: docker build -t pdtg/bsale-front ./client
+      - run: docker build -t pdtg/bsale-server ./server
+      - run: docker build -t pdtg/bsale-nginx ./ngninx
+      #push to docker hub
+      - run: docker push pdtg/bsale-front
+      - run: docker push pdtg/bsale-server
+      - run: docker push pdtg/bsale-nginx
+
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v18
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: bsale-test
+          environment_name: Bsaletest-env
+          existing_bucket_name: elasticbeanstalk-sa-east-1-617664205515
+          region: sa-east-1
+          version_label: ${{ github.sha }}
+          deployment_package: deploy.zip

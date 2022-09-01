@@ -3,25 +3,24 @@ version: "3"
 services:
   client:
     image: bsale-front
-    hostname: client
     build:
       context: client
       dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   api:
     image: bsale-back
-    hostname: api
+    env_file:
+      - ./config/.env
     build:
       context: server
       dockerfile: Dockerfile
-    environment:
-      - BSALE_DB_URL=$BSALE_DB_URL
-      - BSALE_DB_USER=$BSALE_DB_USER
-      - BSALE_DB_PASSWORD=$BSALE_DB_PASSWORD
+    ports:
+      - "8080:8080"
   nginx:
     image: bsale-nginx
     build:
       context: nginx
       dockerfile: Dockerfile
-    hostname: nginx
     ports:
-      - 80:80
+      - 8083:80

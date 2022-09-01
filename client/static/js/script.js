@@ -39,8 +39,8 @@ const getData = (url) => {
 }
 
 $(() => {
-  const productsApiURL = "http://localhost:8080/api/v1/products"
-  const categoriesApiUrl = "http://localhost:8080/api/v1/categories"
+  const productsApiURL = "api/v1/products"
+  const categoriesApiUrl = "api/v1/categories"
   // Obtiene todos los productos y crea un card para cada producto
   getData(productsApiURL)
   // Obtiene las categorias disponibles y las agrega al dropdown de categorias
