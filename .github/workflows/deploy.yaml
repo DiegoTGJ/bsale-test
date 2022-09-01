@@ -1,4 +1,4 @@
-name: Deploy Multi Docker
+name: Deploy Bsale
 on:
   push:
     branches:

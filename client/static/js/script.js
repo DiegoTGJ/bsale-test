@@ -59,11 +59,17 @@ $(() => {
  $("#search-button").on("click", (event) => {
   const searchName = $("#search-input")[0].value
   getData(productsApiURL+"?nameSearch="+searchName)
+  $("#search-input")[0].value = ""
  })
  $("#search-input").on("keyup",(event) => {
   if(event.key == "Enter") {
     getData(productsApiURL+"?nameSearch="+event.currentTarget.value)
+    $("#search-input")[0].value = ""
   }
+ })
+
+ $("#store-name").on("click",() => {
+  document.location.reload()
  })
  // Main Cart Icon click handler
  $("#cart-icon").on("click",(event) => {

@@ -3,3 +3,5 @@ spring:
     url: ${BSALE_DB_URL}
     username: ${BSALE_DB_USER}
     password: ${BSALE_DB_PASSWORD}
+server:
+  port: 8080
