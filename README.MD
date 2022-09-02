@@ -18,8 +18,8 @@ crear un archivo .env con las variables definidas en config/.env-sample y ejecut
 ```docker-compose
   docker-compose -f .\docker-compose-dev.yml up
 ```
-Y acceder a la aplicación en : localhost:8083 [Link](http://localhost:8083) <br/>
-Para ver la documentacion en local entrar a: localhost:8083/docs/swagger-ui/ [Link](http://localhost:8083/docs/swagger-ui/)
+Para acceder a la aplicación en : localhost:8083 [Link](http://localhost:8083) <br/>
+Para ver la documentación en local entrar a: localhost:8083/docs/swagger-ui/ [Link](http://localhost:8083/docs/swagger-ui/)
 ### Tecnologias utilizadas
 
 #### Backend
