@@ -11,30 +11,33 @@
 </head>
 
 <body>
-  <nav class="navbar bg-light">
-    <div class="container-fluid justify-content-center">
-      <a class="navbar-brand store-name" id="store-name">Tienda Prueba</a>
-      <div class="input-group rounded search-bar">
-        <input type="search" class="form-control rounded" id="search-input"placeholder="Buscar" aria-label="Search" aria-describedby="search-addon" />
-        <span class="input-group-text border-0 search-icon" id="search-button">
-          <i class="fas fa-search"></i>
-        </span>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <nav class="navbar navbar-expand-lg bg-light display-nav">
+    <div class="grid ">
+      <div class="row">
+        <div class="col-12 col-lg-2 align-self-center align-title">
+          <a class="navbar-brand store-name" id="store-name">Tienda Prueba</a>
+        </div>
+        <div class="col-12 col-lg-6 align-self-center">
+          <div class="input-group rounded search-bar ">
+            <input type="search" class="form-control rounded search-input" id="search-input"placeholder="Buscar" aria-label="Search" aria-describedby="search-addon" />
+            <span class="input-group-text border-0 search-icon" id="search-button">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
+        <div class="dropdown col-12 col-lg-2 align-self-center">
+          <button class="btn btn-secondary dropdown-toggle category-size" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
           </button>
           <ul class="dropdown-menu" id="categories-dropdown">
           </ul>
         </div>
-        <span class="icon">
-          <i class="fa-solid fa-2x fa-cart-shopping" id="cart-icon"></i>
-        </span>
       </div>
     </div>
   </nav>
-<div class="container main-container">
+<div class="container main-container ">
   <div class="grid">
-    <div class="row" id="products">
+    <div class="row mx-3 row-justify" id="products">
 
   </div>
   <nav aria-label="Pages">

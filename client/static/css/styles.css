@@ -1,6 +1,8 @@
 .search-bar {
   padding: 1rem;
-  max-width: calc(80% - 4rem);
+}
+.search-input {
+  width: 5rem !important;
 }
 .icon {
   cursor: pointer;
@@ -31,4 +33,44 @@
 }
 .store-name {
   cursor: pointer;
+}
+.display-nav{
+  display: block !important;
+}
+@media screen and (max-width: 1399px) {
+  .row-justify{
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 772px) and (max-width: 992px) {
+  .category-size {
+    width: 50% !important;
+    margin-left: 15rem !important;
+  }
+}
+@media screen and (max-width: 772px) {
+  .category-size {
+    width: 95% !important;
+    margin: 0 0 1rem 1rem;
+
+  }
+
+}
+@media screen and (max-width: 991px) {
+  .align-title {
+    text-align: center !important;
+  }
+}
+@media screen and (min-width: 992px) {
+  .store-name {
+    float: right !important;
+  }
+  .align-title{
+    margin-left: 5rem !important;
+  }
+}
+@media screen and (min-width: 1281px) {
+  .column-size {
+    width: 18rem !important;
+  }
 }

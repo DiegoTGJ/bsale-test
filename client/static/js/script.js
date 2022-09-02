@@ -3,19 +3,21 @@ const getData = (url) => {
   $("#pagination").empty()
   $.getJSON(url).done((data) => {
     $.each(data.content, (index, item) => {
-     $(`<div class="card product-card p-0" style="width: 18rem;">
+
+     $(`<div class="card product-card p-0 col-md-5 col-lg-4 col-xl-3 column-size"">
      <img class=" card-img-top product-img" src=${item.urlImage ? item.urlImage : "./img/image-not-found-icon.png"}></img>
      <div class="card-body">
        <h5 class="card-title">${item.name}</h5>
 
      </div>
      <div class="card-footer m-0">
-     <small class="text-muted ">$${item.price}</small>
+     <small class="text-muted ">$${item.price.slice(0,-2)}</small>
          <small class="text-muted "><i class="fa-solid fa-2x fa-cart-arrow-down cart-product-icon float-end"></i></small>
        </div>
    </div>`).appendTo("#products")
 
     })
+
     if(data.totalElements === 0) {
       $(`<h1 class="ms-5">No existen productos con el termino buscado</h1>`).appendTo("#products")
     }
