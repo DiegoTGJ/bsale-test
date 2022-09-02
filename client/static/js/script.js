@@ -1,4 +1,4 @@
-const getData = (url) => {
+const  getData = (url) => {
   $.getJSON(url).done((data) => {
     $("#products").empty()
     $("#pagination").empty()
@@ -30,9 +30,10 @@ const getData = (url) => {
           if(url.includes("categoryId") || url.includes("nameSearch")){
             getData(url+"&pageNumber="+pageNumber)
           }else{
-            getData(url+"?pageNumber="+pageNumber)
+             getData(url+"?pageNumber="+pageNumber)
           }
         }
+        window.scrollTo(0, 0)
       }).appendTo("#pagination")
     }
   }).fail(() => {
