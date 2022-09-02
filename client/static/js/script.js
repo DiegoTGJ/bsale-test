@@ -1,7 +1,7 @@
 const getData = (url) => {
-  $("#products").empty()
-  $("#pagination").empty()
   $.getJSON(url).done((data) => {
+    $("#products").empty()
+    $("#pagination").empty()
     $.each(data.content, (index, item) => {
 
      $(`<div class="card product-card p-0 col-md-5 col-lg-4 col-xl-3 column-size"">
