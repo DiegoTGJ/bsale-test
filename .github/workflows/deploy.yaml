@@ -20,7 +20,7 @@ jobs:
       - run: docker push pdtg/bsale-nginx
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: zip deploy.zip docker-compose.yml
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
