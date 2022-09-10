@@ -8,7 +8,7 @@
 Este es un proyecto con el fin de demostrar las habilidades tecnicas del postulante para la empresa Bsale
 
 ### Useful links
-- [Link del despliegue](http://bsaleprueba-env.eba-pjw4meme.sa-east-1.elasticbeanstalk.com)
+- [Link del despliegue](http://bsaleprueba-env.eba-pjw4meme.sa-east-1.elasticbeanstalk.com) el despliegue estuvo up mientras se esperaba revision, en caso de no haber revisado, porfavor mandar un mail.
 - [Documentación de la API](http://bsaleprueba-env.eba-pjw4meme.sa-east-1.elasticbeanstalk.com/docs/swagger-ui/)
 
 ### Getting Started
